@@ -74,14 +74,34 @@ class _home_toDoState extends State<home_toDo> {
         ),
       ),
       bottomSheet: SizedBox(
-        height: 50,
+        height: 60,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Flexible(
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(hintText: "Enter new ToDo"),
-            ),
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            children: [
+              Flexible(
+                child: TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    hintText: "Enter new ToDo",
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    if (_controller.text.isEmpty) return;
+                    todo_list
+                        .add(toDo_list(text: _controller.text, check: false));
+                    _controller.text = "";
+                  });
+                },
+                child: Text(
+                  "ADD",
+                  style: TextStyle(color: Colors.blue),
+                ),
+              )
+            ],
           ),
         ),
       ),
