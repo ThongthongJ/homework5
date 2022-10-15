@@ -76,14 +76,15 @@ class _home_toDoState extends State<home_toDo> {
       bottomSheet: SizedBox(
         height: 60,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(10.0),
           child: Row(
             children: [
               Flexible(
                 child: TextField(
                   controller: _controller,
                   decoration: InputDecoration(
-                    hintText: "Enter new ToDo",
+                    border: OutlineInputBorder(),
+                    labelText: "Enter new Todo",
                   ),
                 ),
               ),
