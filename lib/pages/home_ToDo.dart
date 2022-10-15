@@ -14,9 +14,12 @@ class home_toDo extends StatefulWidget {
 }
 
 class _home_toDoState extends State<home_toDo> {
+  final _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xC3D9D6D6),
       appBar: AppBar(
         title: Row(
           children: [
@@ -30,7 +33,6 @@ class _home_toDoState extends State<home_toDo> {
         padding: EdgeInsets.all(8.0),
         child: ListView.builder(
           itemBuilder: (BuildContext context, int i) {
-            var list = todo_list[i];
             return Card(
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -69,6 +71,18 @@ class _home_toDoState extends State<home_toDo> {
             );
           },
           itemCount: todo_list.length,
+        ),
+      ),
+      bottomSheet: SizedBox(
+        height: 50,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Flexible(
+            child: TextField(
+              controller: _controller,
+              decoration: InputDecoration(hintText: "Enter new ToDo"),
+            ),
+          ),
         ),
       ),
     );
