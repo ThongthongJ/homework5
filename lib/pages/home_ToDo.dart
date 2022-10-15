@@ -84,7 +84,7 @@ class _home_toDoState extends State<home_toDo> {
                   controller: _controller,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: "Enter new Todo",
+                    labelText: "Enter new Todo",s
                   ),
                 ),
               ),
